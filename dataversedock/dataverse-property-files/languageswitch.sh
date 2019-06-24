@@ -9,6 +9,7 @@
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/fr-FR > /opt/dv/Bundle_fr.properties
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/it-IT > /opt/dv/Bundle_it.properties
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/hu-HU > /opt/dv/Bundle_hu.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN > /opt/dv/Bundle_zh.properties
 
 if [ -n "$CV_MANAGER_URL" ]; then
     # English
@@ -39,7 +40,11 @@ if [ -n "$CV_MANAGER_URL" ]; then
     echo "cvmanagerURL=$CV_MANAGER_URL" >> /opt/dv/Bundle_hu.properties
     echo 'lang=hu' >> /opt/dv/Bundle_hu.properties
 
-    cp -fr /opt/dv/cvmanager/templates/* /opt/glassfish4/glassfish/domains/domain1/applications/dataverse/ 
+    # Chinese
+    echo "cvmanagerURL=$CV_MANAGER_URL" >> /opt/dv/Bundle_zh.properties
+    echo 'lang=zh' >> /opt/dv/Bundle_zh.properties
+
+    cp -fr /opt/dv/cvmanager/templates/* /opt/glassfish4/glassfish/domains/domain1/applications/dataverse/
 fi
 
-curl http://localhost:8080/api/admin/settings/:Languages -X PUT -d '[{ "locale":"en", "title":"English"}, {"locale":"sl-SI", "title": "Slovenian"},  {"locale":"de-AT", "title": "German"},  {"locale":"fr-FR", "title":"French"}, {"locale":"it-IT", "title":"Italian"}, {"locale":"hu-HU", "title":"Hungarian"}, {  "locale":"se-SE", "title":"Swedish" }]'
+curl http://localhost:8080/api/admin/settings/:Languages -X PUT -d '[{ "locale":"en", "title":"English"}, {"locale":"sl-SI", "title": "Slovenian"},  {"locale":"de-AT", "title": "German"},  {"locale":"fr-FR", "title":"French"}, {"locale":"it-IT", "title":"Italian"}, {"locale":"hu-HU", "title":"Hungarian"}, {  "locale":"se-SE", "title":"Swedish" }, {  "locale":"zh-CN", "title":"Chinese" }]'
