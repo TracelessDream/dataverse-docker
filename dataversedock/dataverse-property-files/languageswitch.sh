@@ -9,7 +9,17 @@
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/fr-FR > /opt/dv/Bundle_fr.properties
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/it-IT > /opt/dv/Bundle_it.properties
 /opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/hu-HU > /opt/dv/Bundle_hu.properties
-/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN > /opt/dv/Bundle_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/Bundle_zh.properties > /opt/dv/Bundle_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/astrophysics_zh.properties > /opt/dv/astrophysics_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/biomedical_zh.properties > /opt/dv/biomedical_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/BuiltInRoles_zh.properties > /opt/dv/BuiltInRoles_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/citation_zh.properties > /opt/dv/citation_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/geospatial_zh.properties > /opt/dv/geospatial_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/journal_zh.properties > /opt/dv/journal_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/MimeTypeDisplay_zh.properties > /opt/dv/MimeTypeDisplay_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/MimeTypeFacets_zh.properties > /opt/dv/MimeTypeFacets_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/socialscience_zh.properties > /opt/dv/socialscience_zh.properties
+/opt/dv/dataverse-property-files/lang-integrator.py /opt/dv/dataverse-property-files/zh-CN/ValidationMessages_zh.properties > /opt/dv/ValidationMessages_zh.properties
 
 if [ -n "$CV_MANAGER_URL" ]; then
     # English
@@ -47,4 +57,5 @@ if [ -n "$CV_MANAGER_URL" ]; then
     cp -fr /opt/dv/cvmanager/templates/* /opt/glassfish4/glassfish/domains/domain1/applications/dataverse/
 fi
 
-curl http://localhost:8080/api/admin/settings/:Languages -X PUT -d '[{ "locale":"en", "title":"English"}, {"locale":"sl-SI", "title": "Slovenian"},  {"locale":"de-AT", "title": "German"},  {"locale":"fr-FR", "title":"French"}, {"locale":"it-IT", "title":"Italian"}, {"locale":"hu-HU", "title":"Hungarian"}, {  "locale":"se-SE", "title":"Swedish" }, {  "locale":"zh-CN", "title":"Chinese" }]'
+# curl http://localhost:8080/api/admin/settings/:Languages -X PUT -d '[{ "locale":"en", "title":"English"}, {"locale":"sl-SI", "title": "Slovenian"},  {"locale":"de-AT", "title": "German"},  {"locale":"fr-FR", "title":"French"}, {"locale":"it-IT", "title":"Italian"}, {"locale":"hu-HU", "title":"Hungarian"}, {  "locale":"se-SE", "title":"Swedish" }, {  "locale":"zh-CN", "title":"Chinese" }]'
+curl http://localhost:8080/api/admin/settings/:Languages -X PUT -d '[{ "locale":"en", "title":"English"}, { "locale":"zh-CN", "title":"Chinese" }]'

@@ -2,6 +2,7 @@
 
 import codecs
 import re
+import os
 import sys
 import glob
 
@@ -32,9 +33,13 @@ def property_reader(filename):
 try:
     langfolder = sys.argv[1]
     bundle = []
-    for filename in glob.glob("%s/*.properties" % langfolder):
-        for line in property_reader(filename):
-            bundle.append(line)
+    if os.path.isdir(langfolder):
+        for filename in glob.glob("%s/*.properties" % langfolder):
+            for line in property_reader(filename):
+                bundle.append(line)
+    else:
+        for line in property_reader(langfolder):
+                bundle.append(line)
     for line in bundle:
         print(line)
 except:
